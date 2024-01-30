@@ -24,6 +24,7 @@ public class TransacaoController {
     //Inserir
     @PostMapping
     public ResponseEntity inserirPessoa(@RequestBody TransacaoEntity transacao){
+        //Receber uma string com tudo, passar para uma lista e depois inserir um por um no banco de dados
 
         //Se não for passado um id
         if(transacao.getId() == null) {
@@ -37,6 +38,7 @@ public class TransacaoController {
     //Atualizar
     @PutMapping
     public ResponseEntity atualizarPessoa(@RequestBody TransacaoEntity transacao){
+
         if(transacao.getId() != null) {
             transacaoService.inserirOuAtualizar(transacao);
             return ResponseEntity.status(200).build();

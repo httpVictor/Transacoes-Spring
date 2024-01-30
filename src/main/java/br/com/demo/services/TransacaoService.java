@@ -24,9 +24,21 @@ public class TransacaoService {
         return transacaoRepository.findAll();
     }
 
+    //Listar organizando por data
+    public List<TransacaoEntity> buscarPorData(){
+        return transacaoRepository.findAll();
+    }
+
     //Deletar
     public void deletar(Integer id){
         transacaoRepository.deleteById(id);
     }
+
+    //Analise de gastos
+    public double analisarSoma(String categoria){
+        List<TransacaoEntity> listaTransacoes = this.buscarTransacoes();
+        return TransacaoEntity.analiseTransacoes(listaTransacoes, categoria);
+    }
+
 
 }
